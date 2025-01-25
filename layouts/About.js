@@ -1,31 +1,24 @@
 "use client";
 
 import { markdownify } from "@lib/utils/textConverter";
-import { Autoplay } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import Banner from "./components/Banner";
+// import SeoMeta from "@layouts/partials/SeoMeta";
 import Circle from "./components/Circle";
 import Cta from "./components/Cta";
 import ImageFallback from "./components/ImageFallback";
-import VideoPopup from "./components/VideoPopup";
+import Head from 'next/head';
 
-const About = ({ data }) => {
-  const { frontmatter } = data;
-  const {
-    title,
-    about_us,
-    works,
-    mission,
-    video,
-    clients,
-    our_member,
-    our_office,
-  } = frontmatter;
 
+
+
+
+const About = () => {
+  
   return (
+       
     <>
-      <section className="section pt-0">
-        <Banner title={title} />
+
+
+      <section className="section pt-0" dir="rtl">
         {/* About */}
         <div className="section container">
           <div className="row items-center justify-center">
@@ -33,7 +26,7 @@ const About = ({ data }) => {
               <div className="about-image relative p-[60px]">
                 <ImageFallback
                   className="animate relative w-full rounded-2xl"
-                  src={about_us.image}
+                  src="/images/about-us.png"
                   width={425}
                   height={487}
                   alt=""
@@ -73,31 +66,57 @@ const About = ({ data }) => {
               </div>
             </div>
             <div className="animate md:col-6 md:order-1 lg:col-4">
-              <p>{about_us.subtitle}</p>
-              {markdownify(about_us.title, "h2", "section-title bar-left mt-4")}
-              {markdownify(about_us.content, "p", "mt-10")}
+              <p>درباره ما</p>
+              {markdownify("ما یک تیم با تجربه  در زمینه برنامه نویسی ربات‌های ترید با استراتژی‌های شخصی هستیم", "h2", "section-title bar-left mt-4")}
+              
+              <p className="mt-10">
+              در تیم ما، ساخت ربات‌های ترید تنها به کدنویسی ختم نمی‌شود. ما با دقت به صحبت‌های شما گوش می‌دهیم تا نیازها و اهداف مالی شما را کاملاً درک کنیم و رباتی طراحی کنیم که به‌طور کامل مطابق با استراتژی‌های شما عمل کند. ما می‌دانیم که هر تریدری روش خاص خود را دارد و ربات باید دقیقاً مثل یک دستیار شخصی عمل کند که همیشه به استراتژی شما پایبند باشد.
+<br></br>
+ابتدا با شما همکاری می‌کنیم تا استراتژی‌های معاملاتی‌تان را به‌طور کامل بشناسیم و آن‌ها را در ربات ترید شما پیاده‌سازی کنیم. ما برایتان وقت می‌گذاریم تا مطمئن شویم که همه چیز درست طبق خواسته شما پیش می‌رود. بعد از این‌که ربات آماده شد، تیم ما همچنان در کنار شما خواهد بود. هر وقت نیاز به کمک یا مشاوره داشتید، ما اینجا هستیم تا مشکلات فنی را برطرف کنیم و ربات را بهینه نگه داریم.
+<br></br>
+ما باور داریم که یک ربات ترید باید همیشه در مسیر شما و با استراتژی شما هماهنگ باشد. برای همین پشتیبانی دائمی از شما را در اولویت داریم تا با خیال راحت و بدون نگرانی از ربات خود استفاده کنید. همیشه در کنار شما خواهیم بود تا نتایج بهتری بگیرید.
+              </p>
             </div>
           </div>
         </div>
 
         {/* Works */}
         <div className="section container">
-          <div className="animate text-center">
-            <p>{works.subtitle}</p>
-            {markdownify(works.title, "h2", "section-title mt-4")}
-            {markdownify(works.content, "p", "mt-10")}
-          </div>
-          <div className="row mt-10 justify-center">
-            {works.list.map((work, index) => (
-              <div key={"work-" + index} className="mt-10 md:col-6 lg:col-5">
-                <div className="animate text-center md:px-6 xl:px-12">
-                  {markdownify(work.title, "h3", "h4")}
-                  {markdownify(work.content, "p", "mt-2")}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+  <div className="animate text-center">
+    <p>چگونه کار می‌کنیم</p>
+    <h2 className="section-title mt-4">فرآیند توسعه و پیاده‌سازی ربات‌های ترید</h2>
+    <p className="mt-10">
+      ما با درک عمیق نیازها و استراتژی‌های مالی شما، ربات‌هایی دقیق، امن و قدرتمند طراحی و توسعه می‌دهیم. هدف ما این است که به شما ابزاری هوشمند ارائه کنیم که معاملات مالی‌تان را به سطح بالاتری ببرد.
+    </p>
+  </div>
+  <div className="row mt-10 justify-center">
+    <div className="mt-10 md:col-6 lg:col-5">
+      <div className="animate text-center md:px-6 xl:px-12">
+        <h3 className="h4">مشاوره و درک استراتژی شما</h3>
+        <p className="mt-2">
+          در اولین قدم، تیم ما با شما همکاری می‌کند تا نیازها و اهداف مالی‌تان را به‌طور کامل شناسایی کند. استراتژی‌های بازار و نوع معاملاتی که مدنظر دارید، به دقت بررسی می‌شود تا مطمئن شویم رباتی که توسعه می‌دهیم، به طور کامل با برنامه‌های شما همخوانی داشته باشد.
+        </p>
+      </div>
+    </div>
+    <div className="mt-10 md:col-6 lg:col-5">
+      <div className="animate text-center md:px-6 xl:px-12">
+        <h3 className="h4">ساخت ربات بر اساس استراتژی شما</h3>
+        <p className="mt-2">
+          پس از تحلیل دقیق استراتژی، ما شروع به توسعه ربات شما می‌کنیم. با استفاده از تکنولوژی‌های پیشرفته، زبان‌های برنامه‌نویسی به‌روز و الگوریتم‌های هوشمند، رباتی منحصر‌به‌فرد طراحی می‌کنیم که بتواند در هر شرایط بازار، عملکردی بهینه داشته باشد.
+        </p>
+      </div>
+    </div>
+    <div className="mt-10 md:col-6 lg:col-5">
+      <div className="animate text-center md:px-6 xl:px-12">
+        <h3 className="h4">پشتیبانی دائمی و بهینه‌سازی</h3>
+        <p className="mt-2">
+          پس از تحویل ربات، ما همچنان همراه شما خواهیم بود. خدمات پشتیبانی دائمی ما شامل رفع مشکلات فنی، ارائه آپدیت‌های جدید و بهینه‌سازی عملکرد ربات است. با تیم پشتیبانی ما، شما همیشه مطمئن خواهید بود که رباتتان در بهترین وضعیت ممکن کار می‌کند.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
 
         {/* Mission */}
         <div className="section container">
@@ -106,10 +125,10 @@ const About = ({ data }) => {
               <div className="about-image relative p-[60px]">
                 <ImageFallback
                   className="animate relative w-full rounded-2xl"
-                  src={mission.image}
+                  src="/images/mission.png"
                   width={425}
                   height={487}
-                  alt=""
+                  alt="ساخت ربات ترید شخصی"
                 />
                 <Circle
                   className="left-4 top-4 z-[-1]"
@@ -146,185 +165,13 @@ const About = ({ data }) => {
               </div>
             </div>
             <div className="animate md:col-6 lg:col-4">
-              <p>{mission.subtitle}</p>
-              {markdownify(mission.title, "h2", "section-title bar-left mt-4")}
-              {markdownify(mission.content, "p", "mt-10")}
-            </div>
-          </div>
-        </div>
-
-        {/* Video */}
-        <div className="container-xl relative">
-          <div className="bg-theme absolute left-0 top-0 w-full">
-            <Circle
-              className="left-[7%] top-[21%]"
-              width={32}
-              height={32}
-              fill={false}
-            />
-            <Circle
-              className="left-[30%] top-[10%]"
-              width={20}
-              height={20}
-              fill={false}
-            />
-            <Circle
-              className="bottom-[35%] left-[4%]"
-              width={20}
-              height={20}
-              fill={false}
-            />
-            <Circle
-              className="bottom-[11%] left-[10%]"
-              width={37}
-              height={37}
-              fill={false}
-            />
-            <Circle
-              className="bottom-[48%] left-[44%]"
-              width={37}
-              height={37}
-              fill={false}
-            />
-            <Circle
-              className="bottom-[22%] left-[35%]"
-              width={20}
-              height={20}
-              fill={false}
-            />
-            <Circle
-              className="right-[32%] top-[2%]"
-              width={47}
-              height={47}
-              fill={false}
-            />
-          </div>
-          <div className="row items-center justify-center py-[90px]">
-            <div className="md:col-6 xl:col-4">
-              <div className="animate p-5">
-                <p>{video.subtitle}</p>
-                {markdownify(video.title, "h2", "mt-4 section-title bar-left")}
-                {markdownify(video.description, "p", "mt-10")}
-              </div>
-            </div>
-            <div className="md:col-6 xl:col-5">
-              <div className="px-4 ">
-                <VideoPopup
-                  id={video.video_id}
-                  thumbnail={video.thumbnail}
-                  width={540}
-                  height={585}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Clients */}
-        <div className="section container">
-          <div className="animate text-center">
-            <p>{clients.subtitle}</p>
-            {markdownify(clients.title, "h2", "section-title mt-4")}
-          </div>
-          <div className="animate from-right col-12 mt-16">
-            <Swiper
-              loop={true}
-              slidesPerView={3}
-              breakpoints={{
-                992: {
-                  slidesPerView: 5,
-                },
-              }}
-              spaceBetween={20}
-              modules={[Autoplay]}
-              autoplay={{ delay: 3000 }}
-            >
-              {clients.brands.map((brand, index) => (
-                <SwiperSlide
-                  className=" h-20 cursor-pointer px-6 py-6 grayscale  transition hover:grayscale-0 lg:px-10"
-                  key={"brand-" + index}
-                >
-                  <div className="relative h-full">
-                    <ImageFallback
-                      className="object-contain"
-                      src={brand}
-                      sizes="100vw"
-                      alt=""
-                      fill={true}
-                      priority={true}
-                    />
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-        </div>
-
-        {/* Members */}
-        <div className="section container">
-          <div className="animate text-center">
-            <p>{our_member.subtitle}</p>
-            {markdownify(our_member.title, "h2", "section-title mt-4")}
-            {markdownify(our_member.content, "p", "mt-16")}
-          </div>
-          <div className="row justify-center">
-            <div className="lg:col-10">
-              <div className="row">
-                {our_member.list.map((member, index) => (
-                  <div
-                    key={("member-", index)}
-                    className="animate mt-10 text-center md:col-6 lg:col-4"
-                  >
-                    <ImageFallback
-                      className="mx-auto rounded-full shadow-[10px_10px_0] shadow-primary/10"
-                      src={member.image}
-                      width={245}
-                      height={245}
-                      alt={member.name}
-                    />
-                    <h4 className="mt-8">{member.name}</h4>
-                    <p className="mt-3">{member.field}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Office */}
-        <div className="section container">
-          <div className="animate text-center">
-            <p>{our_office.subtitle}</p>
-            {markdownify(our_office.title, "h2", "section-title mt-4")}
-            {markdownify(our_office.content, "p", "mt-16")}
-          </div>
-          <div className="row justify-center">
-            <div className="lg:col-10">
-              <div className="row  justify-center">
-                {our_office.countries.map((country, index) => (
-                  <div
-                    key={("country-", index)}
-                    className="animate mt-10 md:col-6 xl:col-3"
-                  >
-                    <div className="rounded-xl p-5 shadow-[0_4px_25px_rgba(0,0,0,.05)]">
-                      <ImageFallback
-                        // className="mx-auto"
-                        src={country.flag}
-                        width={80}
-                        height={80}
-                        alt={country.name}
-                      />
-                      <h5 className="h4 mt-2">{country.name}</h5>
-                      <p className="mt-2">{country.location}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <p>هدف ما</p>
+              {markdownify("ایجاد محیطی شفاف و حرفه ای برای تبدیل استراژی افراد به ربات ترید", "h2", "section-title bar-left mt-4")}
+              {markdownify("هدف تیم ما در ساخت ربات ترید، فراهم آوردن راه‌حلی است که به افراد این امکان را می‌دهد تا استراتژی‌های شخصی خود را به صورت خودکار و بدون دخالت انسانی در بازارهای مالی پیاده‌سازی کنند. ما با بهره‌گیری از الگوریتم‌های پیشرفته و هوش مصنوعی، ربات‌هایی می‌سازیم که قادرند تحلیل‌های دقیق و تصمیمات معاملاتی بهینه اتخاذ کنند. این ربات‌ها با در نظر گرفتن استراتژی‌های خاص هر فرد، به صورت خودکار در بازارهای مختلف مانند ارزهای دیجیتال، فارکس و سایر بازارهای مالی به معامله پرداخته و به کاربران کمک می‌کنند تا بدون احساسات و با مدیریت بهینه سرمایه، بهترین تصمیمات را در زمان مناسب بگیرند. علاوه بر این، تیم پشتیبانی ما همواره در کنار شماست تا در هر مرحله از ساخت ربات ترید و تنظیمات آن، شما را راهنمایی و پشتیبانی کند و اطمینان حاصل کند که ربات شما به بهترین شکل ممکن عمل می‌کند. ما در تلاشیم تا به شما کمک کنیم تا با استفاده از ربات ترید، به اهداف مالی خود دست یابید و تجربه معاملاتی حرفه‌ای و سودآور داشته باشید.", "p", "mt-10")}
             </div>
           </div>
         </div>
       </section>
-      <Cta />
     </>
   );
 };

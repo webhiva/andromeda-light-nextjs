@@ -2,7 +2,7 @@
   "site": {
     "title": "Andromeda Light Nextjs",
     "base_url": "/",
-    "favicon": "/images/favicon.png",
+    "favicon": "/images/favicon.ico",
     "logo": "/images/logo.svg",
     "logo_width": "240",
     "logo_height": "34",
@@ -30,7 +30,7 @@
 
   "nav_button": {
     "enable": true,
-    "label": "Download Now",
+    "label": "سفارش ساخت",
     "link": "https://themefisher.com/products/andromeda-light-nextjs"
   },
 

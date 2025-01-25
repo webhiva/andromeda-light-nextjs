@@ -1,23 +1,32 @@
-import config from "@config/config.json";
-import { markdownify } from "@lib/utils/textConverter";
 import Link from "next/link";
 import Circle from "./Circle";
 import ImageFallback from "./ImageFallback";
 
 function Cta() {
-  const { title, content, button, enable } = config.call_to_action;
-  if (!enable) return;
-
   return (
-    <section className="cta section pt-0">
+    <section className="cta section pt-0" dir="rtl">
       <div className="container-xl">
-        <div className="section relative px-4 text-center">
+        <div className="section relative px-4 ">
           <div className="animate">
-            {markdownify(title, "h2", "section-title")}
-            {markdownify(content, "p", "mt-10")}
-            <Link href={button.link} className="btn btn-primary mt-10">
-              {button.label}
+            <h2 className="section-title text-center">
+              همین الان ربات ترید شخصیتو سفارش بده
+            </h2>
+            <p className="mt-10">
+            با استفاده از ربات‌های ترید، شما می‌توانید به طور خودکار و بدون نیاز به نظارت مستمر، در بازارهای مالی فعالیت کنید. این ربات‌ها بر اساس تحلیل‌های داده‌ای دقیق و الگوریتم‌های پیشرفته عمل می‌کنند تا شما بتوانید از نوسانات بازار بهره‌برداری کنید. به علاوه، ربات‌های ترید قادرند 24/7 بدون وقفه فعالیت کنند، به این معنا که هیچ زمانی از دست نمی‌رود و تمام فرصت‌های سودآور در بازار را شناسایی می‌کنند. برخلاف تریدرهای انسانی که تحت تأثیر احساسات و شرایط روانی قرار می‌گیرند، ربات‌ها هیچ‌گونه ترس یا طمع ندارند و همیشه بر اساس داده‌های واقعی و تحلیل‌های منطقی تصمیم‌گیری می‌کنند.
+<br></br>
+این ویژگی باعث می‌شود که ربات‌ها به طور مؤثری از اشتباهات ناشی از تصمیمات احساسی جلوگیری کنند و مانع از صفر شدن حساب شما شوند. در نتیجه، شما می‌توانید با استفاده از ربات‌های ترید، نه تنها از ضررهای بزرگ جلوگیری کنید بلکه شانس خود را برای رشد و پیشرفت مالی بهبود بخشید. همچنین، این ربات‌ها به جای تمرکز بر موفقیت‌های کوتاه‌مدت و احتمالی، بر روی تحلیل داده‌های دقیق و واقعی متمرکز هستند که می‌تواند شما را در مسیر رشد پایدار قرار دهد.
+<br></br>
+با سفارش ساخت ربات ترید اختصاصی، شما می‌توانید رباتی با ویژگی‌های خاص و الگوریتم‌های بهینه ایجاد کنید که متناسب با نیازها و استراتژی‌های معاملاتی شما باشد. این ربات‌ها قادر به تحلیل و پردازش حجم بالای داده‌ها به صورت خودکار و در زمان‌های مناسب هستند، بدون اینکه شما نیاز به انجام کاری داشته باشید. همچنین با اصلاحات مداوم و بهبود الگوریتم‌ها، ربات‌های ترید به مرور زمان کارایی بیشتری پیدا کرده و عملکرد خود را بهبود می‌بخشند.
+<br></br>
+اگر به دنبال یک راهکار هوشمندانه و مطمئن برای بهبود نتایج معاملات خود هستید، سفارش ساخت ربات ترید می‌تواند بهترین گزینه باشد. با این ربات‌ها، شما از عملکرد ثابت، تحلیل‌های دقیق و بدون خطای انسانی بهره‌مند خواهید شد و می‌توانید در دنیای پیچیده بازارهای مالی با اعتماد به نفس بیشتر و ریسک کمتر عمل کنید.
+            </p>
+           
+           <div className="text-center">
+           <Link href="/plans" className="btn btn-primary mt-10">
+              مشاوره و سفارش
             </Link>
+           </div>
+            
           </div>
           <div className="bg-theme animated-bg absolute top-0 left-0 w-full after:hidden">
             <ImageFallback
@@ -39,7 +48,6 @@ function Cta() {
               height={47}
               fill={false}
             />
-
             <Circle className="right-[12%] top-[12%]" width={20} height={20} />
             <Circle
               className="right-[2%] bottom-[30%]"

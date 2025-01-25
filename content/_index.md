@@ -1,10 +1,11 @@
 ---
 banner:
-  title: "Andromeda is the most intuitive </br> way to prototype Designs"
+  title: "بدون احساسات - ۲۴ ساعته - استراتژی شخصی خودت"
+  subtitle: "با ساخت ربات ترید اختصاصی هیچ موقعیتی رو از دست نده "
   image: /images/banner-app.png
   link:
-    label: Get Premium Version
-    href: "https://themefisher.com/products/andromeda-nextjs"
+    label: همین الان بساز
+    href: "/contact"
 
 ##brands
 brands:

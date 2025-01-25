@@ -1,14 +1,17 @@
-import Logo from "@components/Logo";
-import config from "@config/config.json";
-import menu from "@config/menu.json";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import { CgClose } from "react-icons/cg";
 
 const Header = () => {
-  // distructuring the main menu from menu object
-  const { main } = menu;
+  const menu = [
+    { name: "خانه", url: "/" },
+    { name: "سفارش ساخت", url: "/plans" },
+    { name: "پشتیبانی", url: "/contact" },
+    { name: "قوانین", url: "/rules" },
+    { name: "آموزش ها", url: "/courses" },
+    { name: "وبلاگ", url: "/posts" },
+  ];
 
   // states declaration
   const [showMenu, setShowMenu] = useState(false);
@@ -19,7 +22,7 @@ const Header = () => {
   const pathname = usePathname();
   const asPath = pathname;
 
-  //sticky header
+  // sticky header
   useEffect(() => {
     const header = headerRef.current;
     const headerHeight = header.clientHeight + 200;
@@ -36,9 +39,6 @@ const Header = () => {
     });
   }, []);
 
-  // logo source
-  const { logo } = config.site;
-
   return (
     <>
       <div className="header-height-fix"></div>
@@ -49,76 +49,38 @@ const Header = () => {
         ref={headerRef}
       >
         <nav className="navbar container-xl">
-          {/* logo */}
+          {/* لوگو به صورت متن */}
           <div className="order-0">
-            <Logo src={logo} />
+            <div className="ml-5 text-2xl font-bold text-orange-500">MyTradeBot</div>
           </div>
 
+          {/* منو */}
           <ul
             id="nav-menu"
             className={`navbar-nav order-2 w-full justify-center lg:order-1 md:w-auto md:space-x-2 lg:flex ${
               !showMenu && "hidden"
             }`}
           >
-            {main.map((menu, i) => (
-              <React.Fragment key={`menu-${i}`}>
-                {menu.hasChildren ? (
-                  <li className="nav-item nav-dropdown group relative">
-                    <span className="nav-link inline-flex items-center">
-                      {menu.name}
-                      <svg className="h-4 w-4 fill-current" viewBox="0 0 20 20">
-                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                      </svg>
-                    </span>
-                    <ul className="nav-dropdown-list hidden max-h-0 w-full overflow-hidden border border-border-secondary py-0 transition-all duration-500 group-hover:block group-hover:max-h-[106px] group-hover:py-2 lg:invisible lg:absolute lg:left-1/2 lg:block lg:w-auto lg:-translate-x-1/2 lg:group-hover:visible lg:group-hover:opacity-100">
-                      {menu.children.map((child, i) => (
-                        <li className="nav-dropdown-item" key={`children-${i}`}>
-                          <Link
-                            href={child.url}
-                            className={`nav-dropdown-link block transition-all ${
-                              asPath === child.url && "active"
-                            }`}
-                          >
-                            {child.name}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
-                ) : (
-                  <li className="nav-item">
-                    <Link
-                      href={menu.url}
-                      className={`nav-link block ${
-                        asPath === menu.url && "active"
-                      }`}
-                    >
-                      {menu.name}
-                    </Link>
-                  </li>
-                )}
-              </React.Fragment>
-            ))}
-            {config.nav_button.enable && (
-              <li className="nav-item lg:hidden">
+            {menu.map((item, i) => (
+              <li className="nav-item" key={`menu-${i}`}>
                 <Link
-                  className="btn btn-primary hidden lg:flex"
-                  href={config.nav_button.link}
+                  href={item.url}
+                  className={`nav-link block ${
+                    asPath === item.url && "active"
+                  }`}
                 >
-                  {config.nav_button.label}
+                  {item.name}
                 </Link>
               </li>
-            )}
+            ))}
           </ul>
+
           <div className="order-1 ml-auto flex items-center md:ml-0">
-            {config.nav_button.enable && (
-              <Link
-                className="btn btn-primary hidden lg:flex"
-                href={config.nav_button.link}
-              >
-                {config.nav_button.label}
-              </Link>
-            )}
+            {/* دکمه‌ها */}
+            <Link className="mr-2 btn btn-primary hidden lg:flex" href="/plans">
+              سفارش ساخت
+            </Link>
+            
 
             {/* navbar toggler */}
             {showMenu ? (

@@ -8,7 +8,7 @@ import Cta from "./components/Cta";
 import ImageFallback from "./components/ImageFallback";
 import DisqussEmbed from "./partials/DisqussEmbed";
 import Post from "./partials/Post";
-import SeoMeta from "./partials/SeoMeta";
+
 
 const PostSingle = ({ frontmatter, content, recentPosts }) => {
   let { description, title, date, image, author } = frontmatter;
@@ -17,8 +17,8 @@ const PostSingle = ({ frontmatter, content, recentPosts }) => {
 
   return (
     <>
-      <SeoMeta title={title} description={description} image={image} />
-      <section className="section pt-0">
+      {/* <SeoMeta title={title} description={description} image={image} /> */}
+      <section className="section pt-0" dir="rtl">
         <div className="container">
           <article>
             <div className="row justify-center">
@@ -46,28 +46,20 @@ const PostSingle = ({ frontmatter, content, recentPosts }) => {
                     />
                   </div>
                   <div className="pl-5">
-                    <p className="font-medium text-dark">{author.name}</p>
-                    <p>
-                      {dateFormat(date)} - {readingTime(content)}
-                    </p>
+                    <p className="font-medium text-dark mr-5"> نویسنده : {author.name}</p>
+                    
                   </div>
                 </div>
-                <div className="content mb-16 mt-16 text-left">
+                <div className="content mb-16 mt-16">
                   <MDXContent content={content} />
                 </div>
               </div>
-              {disqus.enable && (
-                <div className="fade row justify-center ">
-                  <div className="lg:col-8">
-                    <DisqussEmbed />
-                  </div>
-                </div>
-              )}
+              
             </div>
           </article>
 
           <div className="section mt-16">
-            <h2 className="section-title text-center">Recent Articles</h2>
+            <h2 className="section-title text-center">بیشتر بخوانید</h2>
             <div className="row justify-center">
               {recentPosts.slice(0, 2).map((post, index) => (
                 <div key={"post-" + index} className="animate mt-16 lg:col-5">

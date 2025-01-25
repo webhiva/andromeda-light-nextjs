@@ -1,68 +1,97 @@
-"use client";
+import React from "react";
 
-import Circle from "@layouts/components/Circle";
-import VideoPopup from "@layouts/components/VideoPopup";
-import { markdownify } from "@lib/utils/textConverter";
-
-const ShortIntro = ({ intro }) => {
+const ShortIntro = () => {
   return (
-    <section className="section pt-0">
-      <div className="container-xl">
-        <div className="relative px-4 py-[70px]">
+    <section className="min-h-screen  from-orange-100 to-orange-300 py-12" dir="rtl">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-white rounded-3xl shadow-xl p-6 lg:p-12">
           <div className="text-center">
-            <div className="animate">
-              <p>{intro.subtitle}</p>
-              {markdownify(intro.title, "h2", "mt-4 section-title")}
-              {markdownify(intro.description, "p", "mt-10")}
+          <p className="text-lg text-orange-700 font-semibold mb-8">
+              یک داستان کوتاه
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
+              دو دوست تریدر
+            </h2>
+           
+            <div className="space-y-8 text-lg text-gray-800 leading-relaxed">
+              <p>
+                در دنیای ترید و سرمایه‌گذاری، دو دوست تصمیم گرفتند شانس خود را در
+                بازارهای مالی امتحان کنند. یکی از آن‌ها به ترید دستی پرداخت، در حالی که دیگری
+                به ساخت ربات ترید روی آورد. این داستان مسیر این دو فرد را با تمام چالش‌ها و
+                موفقیت‌هایشان روایت می‌کند.
+              </p>
+              <div className="bg-orange-50 p-6 rounded-lg shadow-inner">
+                <h3 className="text-2xl font-bold text-orange-600 mb-4">ترید دستی</h3>
+                <p>
+                  فردی که ترید دستی را انتخاب کرده بود، هر روز ساعت‌ها پای نمودارها می‌نشست
+                  و به دنبال فرصت‌های مناسب برای ورود و خروج از معاملات می‌گشت. او همیشه با
+                  احساسات درگیر بود. زمانی که بازار سقوط می‌کرد، ترس از دست دادن سرمایه بر
+                  او غلبه می‌کرد و هنگام صعود، طمع برای کسب سود بیشتر باعث می‌شد تصمیم‌های
+                  نادرستی بگیرد. خستگی ناشی از تحلیل‌های مداوم و از دست دادن فرصت‌های مهم
+                  به دلیل اشتباهات انسانی، به مرور روحیه‌اش را تحلیل برد.
+                </p>
+                <p>
+                  در نهایت او، چندین بار تمام سرمایه‌اش را به دلیل عدم رعایت مدیریت سرمایه و
+                  تصمیم‌های احساسی از دست داد. موفقیت‌های دوره‌ای و کوتاه‌مدتی که در ابتدا
+                  تجربه کرده بود، نتوانست از خسارات بزرگی که به دلیل عدم ثبات و فقدان داده‌های
+                  قابل استناد برای تصمیم‌گیری متحمل شد، جلوگیری کند.
+                </p>
+              </div>
+              <div className="bg-orange-50 p-6 rounded-lg shadow-inner">
+                <h3 className="text-2xl font-bold text-orange-600 mb-4">ربات ترید</h3>
+                <p>
+                  از طرف دیگر، فردی که ساخت ربات ترید را انتخاب کرده بود، توانست از همان
+                  ابتدا نظم را به فرآیند ترید خود وارد کند. ربات او با دریافت داده‌های واقعی
+                  و تحلیل آن‌ها، تصمیم‌های منطقی‌تری می‌گرفت. البته، او نیز کاملاً بی‌نیاز
+                  از تلاش نبود. او مرتباً عملکرد ربات را ارزیابی می‌کرد و پارامترهای آن را
+                  اصلاح می‌کرد تا بتواند به بهترین شکل ممکن بازار را پیش‌بینی کند. گرچه
+                  هنوز به سوددهی قابل توجهی نرسیده بود، اما مهم‌ترین نکته این بود که
+                  سرمایه‌اش همچنان حفظ شده بود.
+                </p>
+                <p>
+                  در آخر او، درک درستی از اهمیت تحلیل داده‌های واقعی داشت. او با اتکا به این
+                  ابزار هوشمند، توانست از افتادن در دام ترس و طمع جلوگیری کند و دیدگاه
+                  واقع‌بینانه‌تری نسبت به بازار داشته باشد. ربات او مانند یک دستیار وفادار،
+                  بدون خستگی به کار ادامه می‌داد و با کمک اصلاحات مداوم، عملکرد خود را
+                  بهبود می‌بخشید.
+                </p>
+              </div>
+
+              <h3 className="text-2xl sm:text-3xl font-bold text-orange-800 mt-10 mb-4">
+                تصمیم درست یا منطقی؟
+              </h3>
+              <p>
+                این داستان که برای خیلی از ما آشناست نشان می‌دهد که ساخت ربات ترید، گرچه
+                چراغ جادو نیست و نیازمند زمان و صبر است، اما می‌تواند راهی هوشمندانه برای
+                مدیریت بهتر سرمایه و درک درست از تحلیل داده‌های واقعی به دور از توهم موفقیت و
+                رشد با یک شیب مثبت باشد. با انتخاب این روش، می‌توانید از احساسات انسانی
+                فاصله بگیرید و به تصمیم‌های منطقی‌تری دست پیدا کنید.
+              </p>
+              <div className="bg-orange-100 p-6 mt-8 rounded-lg shadow-inner text-orange-900">
+                <h4 className="text-xl font-semibold text-orange-700 mb-2">حقیقت:</h4>
+                <p>
+                  حقیقت این است که هیچ تصمیم درستی وجود ندارد! اما تصمیم منطقی این است که
+                  بازار محل رقابت است و در عصر تکنولوژی، اگر از رقیبان جلوتر نیستید، حداقل از
+                  آن‌ها عقب نمانید. انسان موجودی خارق‌العاده است که احساسات و درک خاصی نسبت
+                  به محیط دارد، اما در بازار مالی این ویژگی‌ها گاهی می‌تواند مضر باشد.
+                </p>
+                <p className="mt-4">
+                  ساخت ربات ترید، گرچه چراغ جادو نیست، اما می‌تواند بدون محدودیت زمانی، بدون
+                  احساسات و با مدیریت سرمایه حرفه‌ای ترید کند و باعث شود، حتی اگر سودده نبودید،
+                  حداقل کل سرمایه‌تان از دست نرود! همچنین با داده‌های دقیق و واقعی می‌توانید
+                  با بهینه‌سازی استراتژی و صبوری در این مسیر به نتایج بی‌نظیری دست پیدا کنید.
+                </p>
+              </div>
             </div>
-            <div className="mx-auto mt-10 h-full max-h-[394px] w-full max-w-[716px]">
-              <VideoPopup id={intro.video_id} thumbnail={intro.thumbnail} />
+
+            <div className="mt-12 text-center">
+              <a
+                href="/plans"
+                className="inline-block px-8 py-3 bg-orange-600 text-white font-bold rounded-lg hover:bg-orange-700 transition-all"
+              >
+                شروع با ربات ترید
+              </a>
             </div>
-          </div>
-          <div className="bg-theme absolute left-0 top-0 w-full">
-            <Circle
-              className="left-[10%] top-12"
-              width={32}
-              height={32}
-              fill={false}
-            />
-            <Circle className="left-[3%] top-[30%]" width={85} height={85} />
-            <Circle
-              className="bottom-[52%] left-[22%]"
-              width={20}
-              height={20}
-            />
-            <Circle
-              className="bottom-[35%] left-[15%]"
-              width={47}
-              height={47}
-              fill={false}
-            />
-            <Circle
-              className="bottom-[6%] left-[6%]"
-              width={62}
-              height={62}
-              fill={false}
-            />
-            <Circle className="right-[12%] top-[12%]" width={20} height={20} />
-            <Circle
-              className="right-[2%] top-[30%]"
-              width={73}
-              height={73}
-              fill={false}
-            />
-            <Circle
-              className="right-[19%] top-[50%]"
-              width={37}
-              height={37}
-              fill={false}
-            />
-            <Circle className="right-[33%] top-[52%]" width={20} height={20} />
-            <Circle
-              className="bottom-[18%] right-[5%]"
-              width={65}
-              height={65}
-            />
           </div>
         </div>
       </div>

@@ -1,63 +1,55 @@
 "use client";
 
 import config from "@config/config.json";
-import theme from "@config/theme.json";
-import TwSizeIndicator from "@layouts/components/TwSizeIndicator";
+import Script from 'next/script';
 import Footer from "@layouts/partials/Footer";
 import Header from "@layouts/partials/Header";
 import "../styles/style.scss";
 
+
+
+
+
 export default function RootLayout({ children }) {
-  // import google font css
-  const pf = theme.fonts.font_family.primary;
-  const sf = theme.fonts.font_family.secondary;
 
   return (
-    <html suppressHydrationWarning={true} lang="en">
+    <html suppressHydrationWarning={true} lang="fa">
       <head>
-        {/* responsive meta */}
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=5"
-        />
-
-        {/* favicon */}
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="index, follow" />
         <link rel="shortcut icon" href={config.site.favicon} />
-        {/* theme meta */}
-        <meta name="theme-name" content="andromeda-light-nextjs" />
-
-        {/* google font css */}
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href={`https://fonts.googleapis.com/css2?family=${pf}${
-            sf ? "&family=" + sf : ""
-          }&display=swap`}
-          rel="stylesheet"
-        />
-
-        {/* theme meta */}
-        <meta name="theme-name" content="andromeda-light-nextjs" />
-        <meta name="msapplication-TileColor" content="#000000" />
-        <meta
-          name="theme-color"
-          media="(prefers-color-scheme: light)"
-          content="#fff"
-        />
-        <meta
-          name="theme-color"
-          media="(prefers-color-scheme: dark)"
-          content="#000"
-        />
       </head>
+
+      
       <body suppressHydrationWarning={true}>
-        <TwSizeIndicator />
+        {/* <TwSizeIndicator /> */}
         <Header />
         {children}
         <Footer />
+
+         
+        {/* ابزار چت */}
+        <Script
+          id="goftino-widget"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              !function(){
+                var i="mzQip3",a=window,d=document;
+                function g(){
+                  var g=d.createElement("script"),
+                  s="https://www.goftino.com/widget/"+i,
+                  l=localStorage.getItem("goftino_"+i);
+                  g.async=!0;
+                  g.src=l?s+"?o="+l:s;
+                  d.getElementsByTagName("head")[0].appendChild(g);
+                }
+                "complete"===d.readyState?g():a.attachEvent?a.attachEvent("onload",g):a.addEventListener("load",g,!1);
+              }();
+            `,
+          }}
+        />
       </body>
     </html>
   );
